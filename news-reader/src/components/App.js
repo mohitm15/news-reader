@@ -1,6 +1,7 @@
 import './App.css';
 import React,{Component} from 'react';
 import News from './News/News';
+import Sidenews from './News/Sidenews';
 
 class App extends Component {
 
@@ -20,12 +21,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h4>My Feed</h4>
-        </header>
-        <News news={this.state.news1}/>
-        <News news={this.state.news2}/>
+      <div className="container-fluid">
+        <div className="navbar-fixed">
+          <nav>
+            <div className="nav-wrapper blue-grey darken-3">
+              <a href="#" className="brand-logo center ">My Feed</a>
+            </div>
+          </nav>
+        </div>
+        <div className="row">
+          <div className="col s8">
+            <News news={this.state.news1}/>
+            <News news={this.state.news2}/>
+          </div>
+          <div className="col s4">
+            <Sidenews />
+          </div>
+        </div>
       </div>
     );
   }
