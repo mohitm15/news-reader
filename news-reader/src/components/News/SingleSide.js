@@ -3,10 +3,12 @@ import React from 'react';
 const SingleSide =({item}) => (
     <div>
         <div className="divider"></div>
-        <div className="section">
-            <h5>Section1</h5>
-            <p>Stuff</p>
-        </div>
+        <a href={item.url} target="_blank" rel="noreferrer">
+            <div className="section">
+                <h5>{item.source.name}</h5>
+                <p>{item.title}</p>
+            </div>
+        </a>
     </div>
 );
 

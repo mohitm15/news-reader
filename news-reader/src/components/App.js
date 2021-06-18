@@ -15,6 +15,10 @@ class App extends Component {
       news2:{
         type:'everything',
         query:'domains=techcrunch.com,thenextweb.com'
+      },
+      news3:{
+        type:'everything',
+        query:'q=bitcoin'
       }
     }
   }
@@ -35,7 +39,7 @@ class App extends Component {
             <News news={this.state.news2}/>
           </div>
           <div className="col s4">
-            <Sidenews />
+            <Sidenews news={this.state.news3}/>
           </div>
         </div>
       </div>
