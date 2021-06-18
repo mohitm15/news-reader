@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React,{Component} from 'react';
 import SingleSide from './SingleSide';
+import Error from './Error'
 
 class Sidenews extends Component {
     
@@ -8,6 +9,7 @@ class Sidenews extends Component {
         super(props);
         this.state={
             sidenews:[],
+            error:false,
         };
     }
 
@@ -21,14 +23,28 @@ class Sidenews extends Component {
                 sidenews:response.data.articles
             })
         })
-        .catch((error)=>console.log(error));
+        .catch((error)=>{
+            this.setState({
+                error:true
+            })
+        });
     }
 
+    //shows mistake of nothing returned from render() when I intentionally make error.
+    //What is expected is to display <Error/> component
+
     renderItems() {
-        return this.state.sidenews.map((item) => (
-          <SingleSide key={item.url} item={item} />
-        ));
-      }
+        if(!this.state.error) 
+        {
+            return this.state.sidenews.map((item) => (
+                <SingleSide key={item.url} item={item} />
+                ));
+        }
+        else {
+            return <Error/>
+        }
+        
+      };
     
 
     render() {
