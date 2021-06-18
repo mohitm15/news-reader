@@ -11,7 +11,7 @@ class News extends Component {
     }
 
     componentDidMount() {
-        const url = 'https://newsapi.org/v2/everything?q=tesla&from=2021-05-17&sortBy=publishedAt&apiKey=fbd0ed465f3f46c5924789d3e4810180';
+        const url = `https://newsapi.org/v2/${this.props.news.type}?${this.props.news.query}&apiKey=fbd0ed465f3f46c5924789d3e4810180`;
 
         //fetching data
         fetch(url)
@@ -21,14 +21,15 @@ class News extends Component {
                 news:data.articles
             })
         })
-        .catch(console.error)
+        .catch((error)=>console.log(error));
     }
 
-    renderItems () {
-        return this.state.news.map((item)=>(
-            <NewSingle key={item.url} item={item}/>
+    renderItems() {
+        return this.state.news.map((item) => (
+          <NewSingle key={item.url} item={item} />
         ));
-    }
+      }
+    
 
     render() {
         return (
