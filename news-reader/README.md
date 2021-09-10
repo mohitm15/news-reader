@@ -11,4 +11,4 @@ API source is newsorg.api .
 # Deployment
 
 Link - [https://relaxed-mestorf-86f381.netlify.app/](url)
-API source is newsorg.api .
+
